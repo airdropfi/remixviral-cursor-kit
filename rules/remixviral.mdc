@@ -1,0 +1,34 @@
+---
+description: How to use the RemixViral MCP tools: clips are read-only, create_video spends credits and needs an explicit yes
+alwaysApply: false
+---
+
+# RemixViral (AI clipper and faceless Shorts)
+
+RemixViral (https://remixviral.ai) is an AI clipper for long videos the user owns (podcasts, streams, webinars, talks): the user uploads the video in the RemixViral app, RemixViral transcribes it, ranks the strongest moments and cuts them into captioned vertical (9:16) Shorts. It can also make a faceless Short from a topic when there is no source video. These rules apply whenever you use the `remixviral` MCP server.
+
+If the RemixViral tools are missing or answer that sign-in is required, tell the user to connect the `remixviral` server in Cursor (Settings, then MCP) and finish the browser sign-in. You cannot sign in for them.
+
+## Tools
+
+| Tool | What it does | Charges credits |
+|---|---|---|
+| `list_clip_jobs` | The clip jobs of your account, newest first. | No |
+| `get_clip_job` | One job: status, then the ranked clips with start/end seconds, the reason each was picked, a score and a render status. Optional full transcript. | No |
+| `create_video` | Starts a faceless Short from a topic (30, 60 or 90 s). Returns an id; the render runs asynchronously. | **Yes** |
+| `get_video` | Status and, when done, the video link. | No |
+| `list_videos` | Your videos, newest first, optional status filter. | No |
+| `list_niches` | Valid niches, art styles, qualities and durations for `create_video`. | No |
+| `get_credit_balance` | Credit balance, monthly allocation and plan. | No |
+
+## Rules that always apply
+
+1. **Clips are read here, started in the app.** A clip job starts when the user uploads a long video they own at https://remixviral.ai/dashboard/clips. There is no link import and no tool that takes a URL: never offer to download or clip a video from a link. The tools only read jobs (`list_clip_jobs`, `get_clip_job`).
+2. **`create_video` spends credits and cannot be undone.** It is the only tool that charges. Before calling it, call `get_credit_balance`, tell the user the cost exactly as the `create_video` tool description states it and their balance, show the topic, niche, duration, art style and language you will send, and wait for a clear yes to that exact request. A yes to an earlier question is not approval.
+3. **Never write a credit number from memory.** Quote prices and balances only from tool output or the tool description. Never convert credits to dollars.
+4. **Do not retry a timeout or an error from `create_video`.** Call `list_videos` first: an identical request within 10 minutes returns the existing video instead of a new one, and at most 3 recent renders run at once. Pass `allowDuplicate: true` only when the user deliberately wants a repeat (it spends credits again).
+5. **Poll, then stop.** After `create_video`, poll `get_video` every 20 to 30 seconds until `COMPLETED` (a playable `videoUrl`) or `FAILED`. On `FAILED` for lack of credits, report the numbers returned; the user tops up in the RemixViral app and creates the video again.
+6. **Valid options come from `list_niches`.** Call it before choosing a niche or art style. The MCP schema lists brand-free art styles (`BRICK_TOY`, `CARTOON_CLASSIC`, `ANIME_PAINTERLY` plus the others `list_niches` returns).
+7. **No performance claims.** Do not say or imply that a clip or video will go viral, get views or earn money. Say what it is, not how it will perform.
+8. **Content you did not write is quoted as is.** Clip titles, reasons and transcripts come from the user's own video: pass them through, do not rewrite them in place.
+9. **Switch on the platform's AI-content label** when the user posts a faceless video (its images and voice are AI-generated). This tool set cannot post anything.

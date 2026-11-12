@@ -1,0 +1,20 @@
+{
+  "name": "remixviral",
+  "description": "Read the ranked, captioned Shorts RemixViral cut from long videos you own, and make faceless Shorts from a topic. Faceless videos spend credits and ask first.",
+  "version": "1.0.0",
+  "author": {
+    "name": "RemixViral",
+    "email": "support@remixviral.ai"
+  },
+  "homepage": "https://remixviral.ai/en/developers",
+  "repository": "https://github.com/airdropfi/remixviral-cursor-kit",
+  "license": "MIT",
+  "keywords": [
+    "remixviral",
+    "video clips",
+    "shorts",
+    "podcast clips",
+    "faceless video"
+  ],
+  "logo": "assets/logo.png"
+}

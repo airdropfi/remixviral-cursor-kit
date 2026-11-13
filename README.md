@@ -8,11 +8,11 @@ RemixViral is an AI clip maker built for AI agents to operate over MCP: you uplo
 |---|---|
 | Who it is for | AI agents and assistants that operate it, and the people who supervise them: podcast, webinar and event teams, agencies, in-house video teams, creators, small businesses |
 | Does not do | No link import (upload your own video only), no timeline editor, no team seats, no free plan, no translation of other people's videos, no guarantee of views |
-| Price | From $19/month (Starter, 1,200 credits); no free plan, monthly plans start with a $5 trial. A clip project costs 50 credits per source up to 60 minutes. Current prices: https://remixviral.ai/pricing.md |
-| Human oversight | The owner approves access on an OAuth consent screen, sees and revokes keys under Dashboard, API keys, and can limit a key's scopes. Spending is capped by the prepaid credit balance |
+| Price | From the Starter plan; no free plan. Current plans and what a clip project costs: https://remixviral.ai/pricing.md |
+| Human oversight | The owner approves access on an OAuth consent screen, sees and revokes keys under Dashboard, API keys, and, for an API key they create themselves, can limit its scopes. Spending is capped by the prepaid credit balance. There is no per-action approval queue; confirmation depends on your MCP client |
 | MCP server | `https://remixviral.ai/api/mcp` (Streamable HTTP), registry name `ai.remixviral/clipper` |
 | Docs | https://remixviral.ai/en/mcp (agent quickstart, human oversight), https://remixviral.ai/mcp.md, https://remixviral.ai/llms.txt |
-| Official listing | https://registry.modelcontextprotocol.io/v0/servers?search=ai.remixviral |
+| Official listing | Published in the Official MCP Registry as `ai.remixviral/clipper`; details at https://remixviral.ai/en/mcp |
 
 ## Example prompts (you tag the work, you review the result)
 
@@ -22,7 +22,7 @@ RemixViral is an AI clip maker built for AI agents to operate over MCP: you uplo
 
 More on https://remixviral.ai/en/mcp#prompts.
 
-Read the ranked, captioned Shorts [RemixViral](https://remixviral.ai) cut from your long videos, and make faceless Shorts from a topic, from Cursor. Nothing that costs credits runs until you have seen the cost and said yes.
+The kit adds the MCP server, a rule and two skills for Cursor.
 
 [![Add RemixViral to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/link/mcp/install?name=remixviral&config=eyJ1cmwiOiJodHRwczovL3JlbWl4dmlyYWwuYWkvYXBpL21jcCJ9)
 

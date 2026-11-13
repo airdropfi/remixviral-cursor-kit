@@ -1,6 +1,28 @@
 # RemixViral for Cursor
 
-Read the ranked, captioned Shorts [RemixViral](https://remixviral.ai) cut from your long videos, and make faceless Shorts from a topic, from Cursor. Nothing that costs credits runs until you have seen the cost and said yes.
+RemixViral is an AI clip maker built for AI agents to operate over MCP: you upload a long video you own, your agent reads the ranked, captioned 9:16 Shorts cut from it (with the reason each was picked) and can start faceless Shorts, and you tag the work, review and approve.
+
+## At a glance
+
+| | |
+|---|---|
+| Who it is for | AI agents and assistants that operate it, and the people who supervise them: podcast, webinar and event teams, agencies, in-house video teams, creators, small businesses |
+| Does not do | No link import (upload your own video only), no timeline editor, no team seats, no free plan, no translation of other people's videos, no guarantee of views |
+| Price | From the Starter plan; no free plan. Current plans and what a clip project costs: https://remixviral.ai/pricing.md |
+| Human oversight | The owner approves access on an OAuth consent screen, sees and revokes keys under Dashboard, API keys, and, for an API key they create themselves, can limit its scopes. Spending is capped by the prepaid credit balance. There is no per-action approval queue; confirmation depends on your MCP client |
+| MCP server | `https://remixviral.ai/api/mcp` (Streamable HTTP), registry name `ai.remixviral/clipper` |
+| Docs | https://remixviral.ai/en/mcp (agent quickstart, human oversight), https://remixviral.ai/mcp.md, https://remixviral.ai/llms.txt |
+| Official listing | Published in the Official MCP Registry as `ai.remixviral/clipper`; details at https://remixviral.ai/en/mcp |
+
+## Example prompts (you tag the work, you review the result)
+
+- "Assign to RemixViral: go through my latest clip job and pick the three best clips. Show me the start and end times, the score and why each was picked, so I can approve them."
+- "Use RemixViral to list my videos that are still rendering and the finished ones with links, so I can review what is ready."
+- "Assign to RemixViral: a 30-second faceless Short about three tips for choosing a wedding photographer. Check my balance and tell me the cost first, and only create it after I say yes."
+
+More on https://remixviral.ai/en/mcp#prompts.
+
+The kit adds the MCP server, a rule and two skills for Cursor.
 
 [![Add RemixViral to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/link/mcp/install?name=remixviral&config=eyJ1cmwiOiJodHRwczovL3JlbWl4dmlyYWwuYWkvYXBpL21jcCJ9)
 

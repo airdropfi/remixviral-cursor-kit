@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this connector, please cite it as below."
+title: "RemixViral MCP connector (Cursor kit)"
+type: software
+abstract: "RemixViral is an AI clip maker built for AI agents to operate over MCP: the owner uploads a long video they own, the agent reads the ranked, captioned 9:16 Shorts cut from it and can start faceless Shorts, and the owner reviews and approves. This repository is the Cursor kit that connects an agent to the remote server https://remixviral.ai/api/mcp (registry name ai.remixviral/clipper)."
+authors:
+  - name: "RemixViral"
+    website: "https://remixviral.ai"
+url: "https://remixviral.ai/en/mcp"
+repository-code: "https://github.com/airdropfi/remixviral-cursor-kit"
+license: MIT
+keywords:
+  - mcp
+  - mcp-server
+  - ai-agents
+  - ai-clip-maker
+  - youtube-shorts
